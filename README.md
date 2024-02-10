@@ -5,7 +5,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a simple Captcha tool that we created using the help of ChatGPT. The code should be simple enough to replicate and run on local host.  
+This is a simple Captcha tool Generator that we created using the help of ChatGPT. The code should be simple enough to replicate and run on local host or using Jupyter NoteBook.
 
 Packages Needed to get started:
 * Shiny
@@ -13,8 +13,10 @@ Packages Needed to get started:
 
 ### Built With
 * R Studio
+* Jupyter NoteBook
+* Python
 
 
 #### Conclusion
-* The tool is used only on local host and not an actual app that we were trying to create. 
+* The tool was sucesful for the most part, where we had issues was when it came to fonts and styles. We looked everywhere for packages that might help us with that but we found none. 
 
