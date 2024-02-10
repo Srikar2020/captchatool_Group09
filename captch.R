@@ -1,6 +1,7 @@
 # Catcha Generating tool:
 
-# New Color Full 
+# New Colorful Version with Background
+
 library(shiny)
 library(stringi)
 
@@ -19,6 +20,7 @@ ui <- fluidPage(
       selectInput("font_size", label = "Font Size:", choices = c("Small", "Medium", "Large"), selected = "Medium"),
       selectInput("font_weight", label = "Font Weight:", choices = c("Normal", "Bold"), selected = "Normal"),
       selectInput("font_color", label = "Font Color:", choices = c("Black", "Red", "Blue", "Green"), selected = "Black"),
+      colourInput("bg_color", label = "Background Color:", value = "#FFFFFF"),
       selectInput("font_family", label = "Font Family:", choices = c("Arial", "Verdana", "Times New Roman"), selected = "Arial"),
       textOutput("captcha_text")
     ),
@@ -44,13 +46,19 @@ server <- function(input, output) {
       font_size <- switch(input$font_size, "Small" = "16px", "Medium" = "24px", "Large" = "32px")
       font_weight <- ifelse(input$font_weight == "Bold", "bold", "normal")
       font_color <- input$font_color
+      bg_color <- input$bg_color
       font_family <- input$font_family
       div(
-        style = sprintf("font-size: %s; font-weight: %s; color: %s; text-align: center; font-family: '%s';",
-                        font_size, font_weight, font_color, font_family),
+        style = sprintf("padding: 10px; background-color: %s; display: inline-block; font-size: %s; font-weight: %s; color: %s; text-align: center; font-family: '%s';",
+                        bg_color, font_size, font_weight, font_color, font_family),
         captcha_text()
       )
     }
+  })
+}
+
+# Run the application
+shinyApp(ui = ui, server = server)
   })
 }
 
